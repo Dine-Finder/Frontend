@@ -1,0 +1,15 @@
+.rotated-map-container {
+    transform-origin: center center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 0;
+}
+
+.rotated-map-container .leaflet-container {
+    transform: rotate(-29deg);
+    transform-origin: center center;
+  }

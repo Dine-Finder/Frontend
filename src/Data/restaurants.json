@@ -1,0 +1,573 @@
+{
+    "businesses": [
+        {
+            "id": "XsElXaLxUPKquI78poB8yw",
+            "alias": "maison-pickle-new-york",
+            "name": "Maison Pickle",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/b4A2TY2SSJTeu7jkwvGJFw/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/maison-pickle-new-york?adjust_creative=HUPz4fQi5sJ4hp-OpcJSzg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HUPz4fQi5sJ4hp-OpcJSzg",
+            "review_count": 1929,
+            "categories": [
+                {
+                    "alias": "cocktailbars",
+                    "title": "Cocktail Bars"
+                },
+                {
+                    "alias": "comfortfood",
+                    "title": "Comfort Food"
+                },
+                {
+                    "alias": "breakfast_brunch",
+                    "title": "Breakfast & Brunch"
+                }
+            ],
+            "rating": 4.3,
+            "coordinates": {
+                "latitude": 40.7870473,
+                "longitude": -73.9781361
+            },
+            "transactions": [
+                "delivery",
+                "pickup"
+            ],
+            "price": "$$$",
+            "location": {
+                "address1": "2315 Broadway",
+                "address2": "",
+                "address3": null,
+                "city": "New York",
+                "zip_code": "10024",
+                "country": "US",
+                "state": "NY",
+                "display_address": [
+                    "2315 Broadway",
+                    "New York, NY 10024"
+                ]
+            },
+            "phone": "+12124969100",
+            "display_phone": "(212) 496-9100",
+            "distance": 1101.0045796447828,
+            "attributes": {
+                "business_url": "https://www.maisonpickle.com",
+                "business_temp_closed": null,
+                "menu_url": "https://www.maisonpickle.com/food/",
+                "open24_hours": null,
+                "waitlist_reservation": null,
+                "hot_and_new": null
+            }
+        },
+        {
+            "id": "xt4sa64WOrpJvZBDPNPNYg",
+            "alias": "jacobs-pickles-new-york",
+            "name": "Jacob's Pickles",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/UOq1Bl6hqcyHu5oMWAWRLg/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/jacobs-pickles-new-york?adjust_creative=HUPz4fQi5sJ4hp-OpcJSzg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HUPz4fQi5sJ4hp-OpcJSzg",
+            "review_count": 5626,
+            "categories": [
+                {
+                    "alias": "comfortfood",
+                    "title": "Comfort Food"
+                },
+                {
+                    "alias": "southern",
+                    "title": "Southern"
+                },
+                {
+                    "alias": "tradamerican",
+                    "title": "American"
+                }
+            ],
+            "rating": 4.2,
+            "coordinates": {
+                "latitude": 40.7866504411994,
+                "longitude": -73.9755284786224
+            },
+            "transactions": [
+                "delivery",
+                "pickup"
+            ],
+            "price": "$$",
+            "location": {
+                "address1": "509 Amsterdam Ave",
+                "address2": "",
+                "address3": "",
+                "city": "New York",
+                "zip_code": "10024",
+                "country": "US",
+                "state": "NY",
+                "display_address": [
+                    "509 Amsterdam Ave",
+                    "New York, NY 10024"
+                ]
+            },
+            "phone": "+12124705566",
+            "display_phone": "(212) 470-5566",
+            "distance": 1090.308075295174,
+            "attributes": {
+                "business_url": "https://www.jacobspickles.com/location/jacobs-pickles-upper-west-side/",
+                "business_temp_closed": null,
+                "menu_url": null,
+                "open24_hours": null,
+                "waitlist_reservation": null,
+                "hot_and_new": null
+            }
+        },
+        {
+            "id": "_JIidp30qxD3bfpP3DSMTA",
+            "alias": "taverna-veranda-edgewater",
+            "name": "Taverna Veranda",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/Cyj3j2UnQjyQQCP8ZE1c5w/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/taverna-veranda-edgewater?adjust_creative=HUPz4fQi5sJ4hp-OpcJSzg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HUPz4fQi5sJ4hp-OpcJSzg",
+            "review_count": 231,
+            "categories": [
+                {
+                    "alias": "mediterranean",
+                    "title": "Mediterranean"
+                }
+            ],
+            "rating": 4.0,
+            "coordinates": {
+                "latitude": 40.81899409072942,
+                "longitude": -73.9766440675938
+            },
+            "transactions": [
+                "delivery",
+                "pickup"
+            ],
+            "price": "$$$",
+            "location": {
+                "address1": "725 River Rd",
+                "address2": "",
+                "address3": null,
+                "city": "Edgewater",
+                "zip_code": "07020",
+                "country": "US",
+                "state": "NJ",
+                "display_address": [
+                    "725 River Rd",
+                    "Edgewater, NJ 07020"
+                ]
+            },
+            "phone": "+12018301650",
+            "display_phone": "(201) 830-1650",
+            "distance": 2529.7512951698445,
+            "attributes": {
+                "business_url": "http://tavernaveranda.com",
+                "business_temp_closed": null,
+                "menu_url": null,
+                "open24_hours": null,
+                "waitlist_reservation": null,
+                "hot_and_new": null
+            }
+        },
+        {
+            "id": "TzhAlljC_843JO7UDDUIaQ",
+            "alias": "the-tang-upper-west-side-new-york",
+            "name": "The Tang - Upper West Side",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/k5koHOLaR71xNiwwgI8Bgw/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/the-tang-upper-west-side-new-york?adjust_creative=HUPz4fQi5sJ4hp-OpcJSzg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HUPz4fQi5sJ4hp-OpcJSzg",
+            "review_count": 317,
+            "categories": [
+                {
+                    "alias": "noodles",
+                    "title": "Noodles"
+                },
+                {
+                    "alias": "szechuan",
+                    "title": "Szechuan"
+                },
+                {
+                    "alias": "dimsum",
+                    "title": "Dim Sum"
+                }
+            ],
+            "rating": 4.3,
+            "coordinates": {
+                "latitude": 40.80006,
+                "longitude": -73.96639
+            },
+            "transactions": [
+                "delivery",
+                "pickup"
+            ],
+            "price": "$$",
+            "location": {
+                "address1": "920 Amsterdam Ave",
+                "address2": null,
+                "address3": "",
+                "city": "New York",
+                "zip_code": "10025",
+                "country": "US",
+                "state": "NY",
+                "display_address": [
+                    "920 Amsterdam Ave",
+                    "New York, NY 10025"
+                ]
+            },
+            "phone": "+16465967970",
+            "display_phone": "(646) 596-7970",
+            "distance": 735.4639182549957,
+            "attributes": {
+                "business_url": "http://www.thetangnyc.com",
+                "business_temp_closed": null,
+                "menu_url": "https://www.thetangnyc.com/menu",
+                "open24_hours": null,
+                "waitlist_reservation": null,
+                "hot_and_new": null
+            }
+        },
+        {
+            "id": "_Jgmhw0ywyoGyglPwB1xGA",
+            "alias": "friend-of-a-farmer-upper-west-side-new-york",
+            "name": "Friend Of A Farmer - Upper West Side",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/jWmrpRcHovqWTqOI0uXTxQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/friend-of-a-farmer-upper-west-side-new-york?adjust_creative=HUPz4fQi5sJ4hp-OpcJSzg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HUPz4fQi5sJ4hp-OpcJSzg",
+            "review_count": 55,
+            "categories": [
+                {
+                    "alias": "tradamerican",
+                    "title": "American"
+                },
+                {
+                    "alias": "comfortfood",
+                    "title": "Comfort Food"
+                },
+                {
+                    "alias": "breakfast_brunch",
+                    "title": "Breakfast & Brunch"
+                }
+            ],
+            "rating": 4.2,
+            "coordinates": {
+                "latitude": 40.77642887433869,
+                "longitude": -73.9790569
+            },
+            "transactions": [
+                "delivery",
+                "pickup"
+            ],
+            "location": {
+                "address1": "68 West 71st St",
+                "address2": null,
+                "address3": "",
+                "city": "New York",
+                "zip_code": "10023",
+                "country": "US",
+                "state": "NY",
+                "display_address": [
+                    "68 West 71st St",
+                    "New York, NY 10023"
+                ]
+            },
+            "phone": "+16464526868",
+            "display_phone": "(646) 452-6868",
+            "distance": 2261.5309972645323,
+            "attributes": {
+                "business_url": "https://www.friendofafarmer.com",
+                "business_temp_closed": null,
+                "menu_url": "https://www.friendofafarmer.com/menus",
+                "open24_hours": null,
+                "waitlist_reservation": null,
+                "hot_and_new": null
+            }
+        },
+        {
+            "id": "ME0627wYk0ikhX2yf1fN7w",
+            "alias": "haven-riverfront-restaurant-and-bar-edgewater-2",
+            "name": "HAVEN Riverfront Restaurant and Bar",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/oFUi8x88zuSfy9kdQEGDxA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/haven-riverfront-restaurant-and-bar-edgewater-2?adjust_creative=HUPz4fQi5sJ4hp-OpcJSzg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HUPz4fQi5sJ4hp-OpcJSzg",
+            "review_count": 1275,
+            "categories": [
+                {
+                    "alias": "newamerican",
+                    "title": "New American"
+                },
+                {
+                    "alias": "seafood",
+                    "title": "Seafood"
+                },
+                {
+                    "alias": "bars",
+                    "title": "Bars"
+                }
+            ],
+            "rating": 4.0,
+            "coordinates": {
+                "latitude": 40.80345868061295,
+                "longitude": -73.99103358078574
+            },
+            "transactions": [
+                "delivery",
+                "pickup"
+            ],
+            "price": "$$$",
+            "location": {
+                "address1": "2 Main St",
+                "address2": "Ste G",
+                "address3": "",
+                "city": "Edgewater",
+                "zip_code": "07020",
+                "country": "US",
+                "state": "NJ",
+                "display_address": [
+                    "2 Main St",
+                    "Ste G",
+                    "Edgewater, NJ 07020"
+                ]
+            },
+            "phone": "+12019431900",
+            "display_phone": "(201) 943-1900",
+            "distance": 1661.0604321403646,
+            "attributes": {
+                "business_url": "http://www.havenedgewater.com",
+                "business_temp_closed": null,
+                "menu_url": "https://www.havenedgewater.com/_files/ugd/30c674_2a1ac52241774ddfb415923cfa706a67.pdf",
+                "open24_hours": null,
+                "waitlist_reservation": null,
+                "hot_and_new": null
+            }
+        },
+        {
+            "id": "DGhWO1sUWydVeR5j5ZZaMw",
+            "alias": "la-grande-boucherie-new-york-2",
+            "name": "La Grande Boucherie",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/b9URGcuuhnLq7J-__pHIng/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/la-grande-boucherie-new-york-2?adjust_creative=HUPz4fQi5sJ4hp-OpcJSzg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HUPz4fQi5sJ4hp-OpcJSzg",
+            "review_count": 3085,
+            "categories": [
+                {
+                    "alias": "french",
+                    "title": "French"
+                },
+                {
+                    "alias": "steak",
+                    "title": "Steakhouses"
+                },
+                {
+                    "alias": "cocktailbars",
+                    "title": "Cocktail Bars"
+                }
+            ],
+            "rating": 4.4,
+            "coordinates": {
+                "latitude": 40.7626274,
+                "longitude": -73.98084109999999
+            },
+            "transactions": [
+                "delivery",
+                "pickup"
+            ],
+            "price": "$$$",
+            "location": {
+                "address1": "145 W 53rd St",
+                "address2": "",
+                "address3": null,
+                "city": "New York",
+                "zip_code": "10019",
+                "country": "US",
+                "state": "NY",
+                "display_address": [
+                    "145 W 53rd St",
+                    "New York, NY 10019"
+                ]
+            },
+            "phone": "+12125107714",
+            "display_phone": "(212) 510-7714",
+            "distance": 3798.5526307540053,
+            "attributes": {
+                "business_url": "https://boucherieus.com",
+                "business_temp_closed": null,
+                "menu_url": "https://www.boucherieus.com/la-grande-boucherie-menus/",
+                "open24_hours": null,
+                "waitlist_reservation": null,
+                "hot_and_new": null
+            }
+        },
+        {
+            "id": "h9nuvIu8TyrQcYy8J1AOxg",
+            "alias": "the-ellington-new-york-4",
+            "name": "The Ellington",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/rVD8_DWEjEJBnYVa3r_ggQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/the-ellington-new-york-4?adjust_creative=HUPz4fQi5sJ4hp-OpcJSzg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HUPz4fQi5sJ4hp-OpcJSzg",
+            "review_count": 245,
+            "categories": [
+                {
+                    "alias": "tradamerican",
+                    "title": "American"
+                },
+                {
+                    "alias": "bars",
+                    "title": "Bars"
+                },
+                {
+                    "alias": "venues",
+                    "title": "Venues & Event Spaces"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 40.800868,
+                "longitude": -73.968243
+            },
+            "transactions": [
+                "delivery",
+                "pickup"
+            ],
+            "price": "$$",
+            "location": {
+                "address1": "2745 Broadway",
+                "address2": null,
+                "address3": "",
+                "city": "New York",
+                "zip_code": "10025",
+                "country": "US",
+                "state": "NY",
+                "display_address": [
+                    "2745 Broadway",
+                    "New York, NY 10025"
+                ]
+            },
+            "phone": "+12122813011",
+            "display_phone": "(212) 281-3011",
+            "distance": 672.9531935615179,
+            "attributes": {
+                "business_url": "http://www.theellingtonny.com",
+                "business_temp_closed": null,
+                "menu_url": "https://www.theellingtonny.com/menus/#dinner",
+                "open24_hours": null,
+                "waitlist_reservation": null,
+                "hot_and_new": null
+            }
+        },
+        {
+            "id": "UAMbfUodEHMAIHTltCtyLA",
+            "alias": "the-shell-restaurant-new-york",
+            "name": "The Shell Restaurant",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/TWjsEI25yIyBCbpxJQD76A/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/the-shell-restaurant-new-york?adjust_creative=HUPz4fQi5sJ4hp-OpcJSzg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HUPz4fQi5sJ4hp-OpcJSzg",
+            "review_count": 69,
+            "categories": [
+                {
+                    "alias": "seafood",
+                    "title": "Seafood"
+                },
+                {
+                    "alias": "mediterranean",
+                    "title": "Mediterranean"
+                },
+                {
+                    "alias": "cocktailbars",
+                    "title": "Cocktail Bars"
+                }
+            ],
+            "rating": 4.8,
+            "coordinates": {
+                "latitude": 40.79059,
+                "longitude": -73.97244
+            },
+            "transactions": [
+                "delivery",
+                "pickup",
+                "restaurant_reservation"
+            ],
+            "location": {
+                "address1": "635 Amsterdam Ave",
+                "address2": "",
+                "address3": "",
+                "city": "New York",
+                "zip_code": "10025",
+                "country": "US",
+                "state": "NY",
+                "display_address": [
+                    "635 Amsterdam Ave",
+                    "New York, NY 10025"
+                ]
+            },
+            "phone": "+16466697628",
+            "display_phone": "(646) 669-7628",
+            "distance": 645.7640621295191,
+            "attributes": {
+                "business_url": "https://www.theshellrestaurant.com",
+                "business_temp_closed": null,
+                "menu_url": "https://www.theshellrestaurant.com/menu",
+                "open24_hours": null,
+                "waitlist_reservation": true,
+                "hot_and_new": null
+            }
+        },
+        {
+            "id": "w4aW7geanPgny-dxsDNkMA",
+            "alias": "moon-kee-new-york",
+            "name": "Moon Kee",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/QWQmNFm2ONrvqIqL229iLQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/moon-kee-new-york?adjust_creative=HUPz4fQi5sJ4hp-OpcJSzg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HUPz4fQi5sJ4hp-OpcJSzg",
+            "review_count": 58,
+            "categories": [
+                {
+                    "alias": "cantonese",
+                    "title": "Cantonese"
+                },
+                {
+                    "alias": "dimsum",
+                    "title": "Dim Sum"
+                },
+                {
+                    "alias": "hkcafe",
+                    "title": "Hong Kong Style Cafe"
+                }
+            ],
+            "rating": 4.3,
+            "coordinates": {
+                "latitude": 40.7973721,
+                "longitude": -73.9694833
+            },
+            "transactions": [
+                "delivery",
+                "pickup"
+            ],
+            "price": "$$",
+            "location": {
+                "address1": "2642 Broadway",
+                "address2": "",
+                "address3": null,
+                "city": "New York",
+                "zip_code": "10025",
+                "country": "US",
+                "state": "NY",
+                "display_address": [
+                    "2642 Broadway",
+                    "New York, NY 10025"
+                ]
+            },
+            "phone": "+16464389283",
+            "display_phone": "(646) 438-9283",
+            "distance": 370.4650843272896,
+            "attributes": {
+                "business_url": "http://www.moonkeerestaurant.com",
+                "business_temp_closed": null,
+                "menu_url": "https://moonkeerestaurant.com/menu/",
+                "open24_hours": null,
+                "waitlist_reservation": null,
+                "hot_and_new": null
+            }
+        }
+    ],
+    "total": 8700,
+    "region": {
+        "center": {
+            "longitude": -73.9736741,
+            "latitude": 40.7963548
+        }
+    }
+}
