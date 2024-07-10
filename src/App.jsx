@@ -1,14 +1,15 @@
+import React, { useState } from 'react'; // Removed unused useEffect and useRef
 import 'leaflet/dist/leaflet.css';
-import React, {useEffect, useState, useRef} from 'react';
 import './App.css';
 import MapComponent from './Components/MapComponent';
 import Header from './Components/Header';
 import RecommendationBox from './Components/RecommendationBox';
 import SideBox from './Components/SideBox';
 import RestuarantPanel from './Components/RestuarantPanel';
-import RestaurantInfo from './Data/restaurants2.json'
+import RestaurantInfo from './Data/restaurants2.json';
 import PageButton from './Components/PageButton';
 import PerPageButton from './Components/PerPageButton';
+
 
 function App() {
 
@@ -47,7 +48,6 @@ function App() {
 
   const handleDataFromChild = (childData) => {
     setPreferences(childData);
-    console.log(preferences)
   };
 
   function handlePageButtonClick(buttonNumber){
@@ -76,32 +76,31 @@ function App() {
 
 
   const sendDataToBackend = async () => {
-    try{
-      const response = await fetch('ewq', {
+    try {
+      console.log("fuck1")
+      const response = await fetch('/connect', {
         method: 'POST',
-        body: JSON.stringify({input: preferences}),
-    });
-
-    if (response.ok){
-      const data = await response.json();
-    } else {
-      console.error('Error:', response.statusText);
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({input: preferences})
+      });
+  
+      if (response.ok) {
+        console.log("fuck2")
+        const data = await response.json();
+        console.log(data);  // Directly log here or return data
+        return data;
+      } else {
+        console.error('Error:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
-  } catch (error) {
-    console.error('Error:', error);
-  }
   };
-
-
-
-
-
-
-
-
-
-
-
+  
+  
+  
 
   return (
     <div className='h-[100vh]'>
