@@ -77,7 +77,6 @@ function App() {
 
   const sendDataToBackend = async () => {
     try {
-      console.log("fuck1")
       const response = await fetch('/connect', {
         method: 'POST',
         headers: {
@@ -87,9 +86,8 @@ function App() {
       });
   
       if (response.ok) {
-        console.log("fuck2")
         const data = await response.json();
-        console.log(data);  // Directly log here or return data
+        console.log(data);
         return data;
       } else {
         console.error('Error:', response.statusText);
