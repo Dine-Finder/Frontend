@@ -1,10 +1,11 @@
 //src Header.jsx
-import React from 'react';
-import './CSS/Title.css';
+import React from "react";
+import "./CSS/Title.css";
 
 const Header = () => {
   return (
-    <div className="
+    <div
+      className="
     bg-main
     w-full 
     h-[6vh] 
@@ -14,12 +15,10 @@ const Header = () => {
     border-b-2
     border-yellow
     "
-    > 
-      <h1 className='text-white'>
-        QuietBites
-      </h1>
+    >
+      <h1 className="text-white">QuietBites</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
