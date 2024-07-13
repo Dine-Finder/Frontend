@@ -18,10 +18,8 @@ function SignInForm() {
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      console.log(`${baseUrl()}/login`);
       const response = await axios.post(`${baseUrl()}/login`, user);
       // localStorage.setItem("access_token", response.data.access_token);
-      console.log(response);
       setAuth(response.data);
       setJwt(response.data.access_token);
       // Redirect to protected route

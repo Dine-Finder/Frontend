@@ -13,7 +13,7 @@ function SignUpForm() {
 
   const handleOnSubmit = (evt) => {
     evt.preventDefault();
-    const response = axios.post(`${baseUrl}/register`, user);
+    const response = axios.post(`${baseUrl()}/register`, user);
     response
       .then((data) => {
         alert("User registered Successfully");
