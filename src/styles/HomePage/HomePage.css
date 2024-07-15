@@ -1,0 +1,15 @@
+.heading{
+    background: #1C1B22;
+}
+
+.loader-container {
+    position: fixed;   /* Or 'absolute' if the parent is positioned */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Make sure it's above other content */
+}

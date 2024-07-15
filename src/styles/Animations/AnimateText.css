@@ -1,0 +1,11 @@
+.animate-text.text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-text.text.animate {
+  opacity: 1;
+  transform: translateY(0px) scale(1.05);
+  transition-delay: 0.2s;
+}
