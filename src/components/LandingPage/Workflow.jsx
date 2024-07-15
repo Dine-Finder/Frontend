@@ -1,5 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
-import diningImg from "../../assets/dining.png"; // Ensure you have a relevant dining image
+import diningImg from "../../assets/dining.png";
 import { checklistItems } from "../../constants";
 import AnimateText from '../Animations/AnimateText';
 

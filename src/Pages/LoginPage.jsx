@@ -7,10 +7,9 @@ import '../styles/LoginPage/LoginPage.css';
 function LoginPage() {
     const [isSigningIn, setIsSigningIn] = useState(true);
 
-    // Reset the state when the component mounts
     useEffect(() => {
         setIsSigningIn(true);
-    }, []); // The empty array ensures this effect runs only once after the component mounts.
+    }, []);
 
     const handleOnClick = (text) => {
         if (text !== (isSigningIn ? 'signIn' : 'signUp')) {

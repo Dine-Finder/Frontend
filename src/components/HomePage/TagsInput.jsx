@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
+import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 
 import { processAndSortRestaurants } from './Trie';
+
+const GradientButton = styled(Button)({
+    background: 'linear-gradient(to right, #fb923c, #9a3412)',
+    borderRadius: '8px',
+    marginRight: '8px',
+    fontWeight: 'bold',
+    color: 'white',
+    '&:hover': {
+      background: 'linear-gradient(to right, #ea580c, #fdba74)',
+    },
+  });
 
 const TagsInput = ({ restaurant, onClick }) => {
     const [tags, setTags] = useState([]);
@@ -32,10 +44,10 @@ const TagsInput = ({ restaurant, onClick }) => {
 
 
     return (
-        <div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', padding: '1px', border: '1px solid #ccc', borderRadius: '10px' }}>
+        <div className='flex justify-between items-center p-2'>
+            <div className="grow" style={{ display: 'flex', flexWrap: 'wrap', padding: '1px', border: '1px solid #ccc', borderRadius: '10px' }}>
                 {tags.map((tag, index) => (
-                    <div key={index} style={{ margin: '5px', padding: '5px', backgroundColor: '#e0e0e0', borderRadius: '8px', fontSize: '13px' }}>
+                    <div key={index} style={{ margin: '5px', padding: '3px', backgroundColor: '#1F2937', borderRadius: '8px', fontSize: '12px' }}>
                         {tag}
                         <button onClick={() => removeTag(index)} style={{ marginLeft: '10px', cursor: 'pointer' }}>×</button>
                     </div>
@@ -44,14 +56,17 @@ const TagsInput = ({ restaurant, onClick }) => {
                     type="text"
                     value={inputValue}
                     onChange={handleInputChange}
-                    style={{ flex: '1', border: 'none', outline: 'none', fontSize: '13px', padding: '5px', borderRadius: '10px' }}
+                    style={{ flex: '1', border: 'none', outline: 'none', fontSize: '16px', padding: '5px', borderRadius: '10px' }}
                     placeholder="Add a tag..."
                 />
             </div>
-            <Button variant="contained" className='rounded-md'
-                onClick={() => take_input(tags, restaurant, onClick)}>
-                <p className='text-main font-extrabold'>APPLY</p>
-            </Button>
+            <GradientButton
+            variant="contained"
+            style={{ borderRadius: '8px', marginRight: '8px', marginLeft: '8px', fontWeight: 'bold', color: 'your-color' }}
+            onClick={() => take_input(tags, restaurant, onClick)}>
+            APPLY
+            </GradientButton>
+
         </div>
     );
 };

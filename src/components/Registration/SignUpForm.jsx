@@ -31,7 +31,7 @@ function SignUpForm() {
         }
     
         try {
-            const response = await axios.post('http://localhost:5000/register', {
+            const response = await axios.post('/api/register', {
                 username: name,
                 email: email,
                 password: password
@@ -40,7 +40,6 @@ function SignUpForm() {
             if (response.status === 201) {
                 alert('Registration successful!');
                 navigate('/login');
-                window.location.href = '/login';
             } else {
                 throw new Error('Registration failed');
             }

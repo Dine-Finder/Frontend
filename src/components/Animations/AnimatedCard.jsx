@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 const AnimatedCard = ({ children }) => {
   const { ref, inView } = useInView({
     triggerOnce: false,
-    threshold: 0.3  // Adjust this as needed
+    threshold: 0.3
   });
 
   return (

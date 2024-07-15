@@ -1,20 +1,7 @@
-import { useState } from "react";
+import React from "react";
 import logo from "../../assets/logo.png";
 
 const Navbar = () => {
-    const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
-
-    const toggleNavbar = () => {
-        setMobileDrawerOpen(!mobileDrawerOpen);
-    };
-
-    const handleNavClick = (event, anchorId) => {
-        event.preventDefault();
-        const anchorSection = document.querySelector(anchorId);
-        if (anchorSection) {
-            anchorSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
 
     return (
         <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/80">

@@ -1,20 +1,15 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate instead of useHistory
-import { User, LogOut } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { LogOut } from "lucide-react";
 import logo from "../../assets/logo.png";
 
 const Navbar = () => {
-    const navigate = useNavigate(); // Use the useNavigate hook for navigation
+    const navigate = useNavigate();
 
     const handleLogout = () => {
-        // Remove the token from local storage
         localStorage.removeItem('token');
-
-        // Log to console or handle any post-logout logic here
-        console.log("Logged out successfully");
-
-        // Redirect to login page
-        navigate('/login');
+        alert("Logged out successfully");
+        navigate('/');
     };
 
     return (
@@ -26,7 +21,7 @@ const Navbar = () => {
                         <span className="text-xl tracking-tight"><a href="/">DineFinder</a></span>
                     </div>
                     <button onClick={handleLogout} className="flex items-center px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700">
-                        <LogOut className="h-5 w-5 mr-2" /> {/* Use LogOut icon */}
+                        <LogOut className="h-5 w-5 mr-2" />
                         <span>Logout</span>
                     </button>
                 </div>
