@@ -50,5 +50,3 @@ frontend
 └── vite.config.js
 `
 
-
-updated readme.md
