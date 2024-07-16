@@ -49,3 +49,6 @@ frontend
 ├── tailwind.config.js
 └── vite.config.js
 `
+
+
+updated readme.md
