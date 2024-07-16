@@ -12,7 +12,8 @@ const RestaurantPanel = ({ranking, info, showing, page, onClick, buttonPress}) =
 
   const sendClick = (e) => {
     e.stopPropagation();
-    buttonPress(true);
+    window.open(selectedRest.url, '_blank', 'noopener,noreferrer');
+    // buttonPress(true);
   }
 
   return (
