@@ -33,6 +33,6 @@ jobs:
           ssh-private-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Deploy
-        run: rsync -avz --delete ./Backend/flaskapp/build/ ubuntu@ec2-16-171-129-85.eu-north-1.compute.amazonaws.com:/home/ubuntu/Backend/flaskapp/build/
+        run: rsync -avz --delete ./dist/ ubuntu@ec2-16-171-129-85.eu-north-1.compute.amazonaws.com:/home/ubuntu/Backend/flaskapp/build/
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
