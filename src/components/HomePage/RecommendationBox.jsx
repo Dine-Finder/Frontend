@@ -32,7 +32,7 @@ const RecommendationBox = ({ children, restaurants, onclick }) => {
         mb-2
         p-2
         shadow-lg
-        text-5xl
+        text-6xl
         font-bold
         items-center
         z-20

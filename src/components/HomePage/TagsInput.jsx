@@ -23,7 +23,7 @@ const TagsInput = ({ restaurant, onClick }) => {
         const value = event.target.value;
         if (value.endsWith(',') && value.length > 1) {
             const newTag = value.slice(0, -1).trim();
-            if (newTag && !tags.includes(newTag) && tags.length < 5) {
+            if (newTag && !tags.includes(newTag) && tags.length < 8) {
                 setTags([...tags, newTag]);
                 setInputValue('');
             }
@@ -49,7 +49,7 @@ const TagsInput = ({ restaurant, onClick }) => {
                 {tags.map((tag, index) => (
                     <div key={index} style={{ margin: '5px', padding: '3px', backgroundColor: '#1F2937', borderRadius: '8px', fontSize: '12px' }}>
                         {tag}
-                        <button onClick={() => removeTag(index)} style={{ marginLeft: '10px', cursor: 'pointer' }}>×</button>
+                        <button onClick={() => removeTag(index)} style={{ marginLeft: '10px', cursor: 'pointer' }}><i class="fa-solid fa-circle-xmark"></i></button>
                     </div>
                 ))}
                 <input
@@ -61,7 +61,7 @@ const TagsInput = ({ restaurant, onClick }) => {
                 />
             </div>
             <GradientButton
-            variant="contained"
+            variant="contained hover:scale-105 active:scale-90"
             style={{ borderRadius: '8px', marginRight: '8px', marginLeft: '8px', fontWeight: 'bold', color: 'your-color' }}
             onClick={() => take_input(tags, restaurant, onClick)}>
             APPLY

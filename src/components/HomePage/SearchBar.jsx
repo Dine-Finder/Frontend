@@ -18,7 +18,7 @@ const loadScript = (url, callback) => {
             existingScript.onload = () => {
                 existingScript.setAttribute('data-loaded', 'true');
                 callback();
-            }
+            };
         }
     }
 };
@@ -32,8 +32,15 @@ const SearchBar = ({ onDataFromParent }) => {
     useEffect(() => {
         loadScript(`https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places`, () => {
             if (window.google && window.google.maps && inputRef.current) {
+                const manhattanBounds = new window.google.maps.LatLngBounds(
+                    new window.google.maps.LatLng(40.700292, -74.020181),
+                    new window.google.maps.LatLng(40.879038, -73.906058)
+                );
                 autocompleteRef.current = new window.google.maps.places.Autocomplete(inputRef.current, {
+                    bounds: manhattanBounds,
+                    componentRestrictions: { country: 'us' },
                     types: ['geocode'],
+                    strictBounds: true,
                 });
                 autocompleteRef.current.addListener('place_changed', () => {
                     const place = autocompleteRef.current.getPlace();

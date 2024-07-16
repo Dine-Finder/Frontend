@@ -3,7 +3,7 @@ import React from 'react';
 const CurrentRestuarants = ({numberOfBusinesses}) => {
     return (
         <div className="
-        text-sm text-orange-500
+        text-m text-orange-500
         w-[96%]
         border
         rounded-md

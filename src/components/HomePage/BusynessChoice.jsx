@@ -31,6 +31,7 @@ const BusynessChoice = ({onDataUpdate}) => {
                         text-white-600
                         ${selectionMatrix[index] === 0 ? 'hover:text-orange-600 border' : 'bg-white text-orange-600' }
                         rounded-md
+                        hover:scale-105 active:scale-100
                     `
                     }
                     onClick={() => handleClick(index)}    

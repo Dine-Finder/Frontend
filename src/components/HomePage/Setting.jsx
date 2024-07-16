@@ -23,7 +23,7 @@ const Setting = ({ title, content, optional, children, priorityUpdate }) => {
                     <div>{children}</div>
                     <div className="flex flex-col">
                         <button className={`
-                            px-2 py-2 m-1 text-sm rounded-md
+                            px-2 py-2 m-1 text-sm rounded-md hover:scale-105 active:scale-100
                             ${priority === "Required" ? 'text-white bg-gradient-to-r from-orange-400 to-orange-800' : 'text-white-500 hover:text-orange-600 border'}
                             `}
                             onClick={() => setPriority("Required")}
@@ -31,7 +31,7 @@ const Setting = ({ title, content, optional, children, priorityUpdate }) => {
                             Required
                         </button>
                         <button className={`
-                            px-2 py-2 m-1 text-sm rounded-md
+                            px-2 py-2 m-1 text-sm rounded-md hover:scale-105 active:scale-100
                             ${priority === "Preference" ? 'text-white bg-gradient-to-r from-orange-400 to-orange-800' : 'text-white-500 hover:text-orange-600 border'}
                             `}
                             onClick={() => setPriority("Preference")}

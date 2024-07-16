@@ -18,7 +18,7 @@ const SideBox = ({preferences, numberOfBusinesses, onDataFromChild, applyPrefere
   }
 
   return (
-    <div className="w-[16vw] relative z-1 float-left flex flex-col justify-around items-center"> 
+    <div className="w-[16vw] relative z-1 float-left flex flex-col items-center"> 
       <CurrentRestuarants numberOfBusinesses={numberOfBusinesses}/>
       <SettingsBox prefs={preferences} onDataFromParent={handleDataFromChild}/>
       <ApplyButton onClick={acceptClicked}/>

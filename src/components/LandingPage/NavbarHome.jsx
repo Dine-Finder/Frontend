@@ -20,7 +20,7 @@ const Navbar = () => {
                         <img className="h-10 w-10 mr-2" src={logo} alt="Logo" />
                         <span className="text-xl tracking-tight"><a href="/">DineFinder</a></span>
                     </div>
-                    <button onClick={handleLogout} className="flex items-center px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700">
+                    <button onClick={handleLogout} className="flex items-center px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 hover:scale-110 active:scale-90">
                         <LogOut className="h-5 w-5 mr-2" />
                         <span>Logout</span>
                     </button>
