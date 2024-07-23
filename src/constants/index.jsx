@@ -45,7 +45,7 @@ export const testimonials = [
     user: "Deborah Ruiz",
     company: "Culinary Adventures",
     image: user4,
-    text: "I love exploring new cuisines and this system makes it so easy to find the hottest spots and hidden gems!",
+    text: "I love exploring new cuisines and this system and this makes it so easy to find the hottest spots and hidden gems!",
   },
   {
     user: "Evan Matthews",

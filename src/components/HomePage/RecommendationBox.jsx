@@ -5,7 +5,7 @@ import TagsInput from './TagsInput';
 const RecommendationBox = ({ children, restaurants, onclick }) => {
   return (
     <div className="
-      h-[95vh] 
+      h-[90vh] 
       relative
       inline-flex
       flex-col
@@ -27,15 +27,17 @@ const RecommendationBox = ({ children, restaurants, onclick }) => {
       flex-col
       '>
         <div className="
-        h-20
+        h-15
+        md:h:20
         w-full
         mb-2
         p-2
         shadow-lg
-        text-6xl
+        text-4xl
+        md:text-6xl
         font-bold
         items-center
-        z-20
+        z-10
         bg-gradient-to-r from-orange-800 to-orange-400
         text-transparent
         bg-clip-text">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import LoginPage from './Pages/LoginPage';
+import SignInForm from './components/Registration/SignInForm';
+import SignUpForm from './components/Registration/SignUpForm';
 import LandingPage from './Pages/LandingPage'
 import HomePage from './Pages/HomePage';
 import Layout from './Pages/Layout'
@@ -13,7 +14,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="" element={<LandingPage />} />
           {/* <Route path="/data" element={<UserPage />} /> */}
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<SignInForm />} />
+          <Route path="/register" element={<SignUpForm />} />
           <Route path="/home" element={<PrivateRoute> <HomePage /> </PrivateRoute>} />
           {/* <Route path="/user" element={<PrivateRoute> <UserPage /> </PrivateRoute>} /> */}
         </Route>

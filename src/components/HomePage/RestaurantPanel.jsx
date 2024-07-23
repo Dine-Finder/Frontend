@@ -19,7 +19,8 @@ const RestaurantPanel = ({ranking, info, showing, page, onClick, buttonPress}) =
   return (
     <div className="
         hover:bg-light
-        h-[200px]
+        h-[250px]
+        md:h-[200px]
         w-full
         z-100
         mb-6

@@ -19,7 +19,7 @@ const RangeSlider = ( {min, max, step, onDataFromParent} ) => {
   }, [radius])
 
   return (
-      <div className='mx-2'>
+      <div className='mx-2 flex flex-col items-center justify-center'>
         <label className="block text-sm font-medium text-gray-700">Radius: {radius} miles</label>
         {/* <input
           type="range"

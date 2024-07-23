@@ -36,7 +36,7 @@ const Navbar = () => {
           </Link>
           <ul className="hidden lg:flex ml-14 space-x-12">
             {navItems.map((item, index) => (
-              <li key={index} className="hover:scale-110 active:scale-90">
+              <li key={index} className="hover:scale-110 hover:text-orange-600 active:scale-90 text-lg">
                 <Link to={item.href} onClick={(e) => handleNavClick(e, item.href)}>{item.label}</Link>
               </li>
             ))}
@@ -45,7 +45,7 @@ const Navbar = () => {
             <button onClick={handleNavigate('/login')} className="py-2 px-3 border rounded-md hover:scale-110 active:scale-90">
               Sign In
             </button>
-            <button onClick={handleNavigate('/login')} className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md hover:scale-110 active:scale-90">
+            <button onClick={handleNavigate('/register')} className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md hover:scale-110 active:scale-90">
               Create an account
             </button>
           </div>
@@ -56,19 +56,20 @@ const Navbar = () => {
           </div>
         </div>  
         {mobileDrawerOpen && (
-          <div className="fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden">
-            <ul>
+          <div className="fixed z-20 bg-custom-dark w-[90vw] top-19 border right-5 p-2 flex flex-col justify-center items-center lg:hidden rounded-md">
+            <ul className="pt-4 flex flex-col gap-2">
               {navItems.map((item, index) => (
-                <li key={index} className="py-4">
-                  <Link to={item.href}>{item.href}</Link>
+                <li key={index} className="p-2 text-sm text-white rounded-md duration-300 border">
+                  <Link to={item.href} onClick={(e) => handleNavClick(e, item.href)}>{item.label}</Link>
                 </li>
+
               ))}
             </ul>
-            <div className="flex space-x-6">
+            <div className="flex space-x-6 py-4">
               <button onClick={handleNavigate('/login')} className="py-2 px-3 border rounded-md hover:scale-110 active:scale-90">
                 Sign In
               </button>
-              <button onClick={handleNavigate('/login')} 
+              <button onClick={handleNavigate('/register')} 
                 className="py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-orange-800 hover:scale-110 active:scale-90"
               >
                 Create an account

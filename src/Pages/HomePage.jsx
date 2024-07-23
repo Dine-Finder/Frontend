@@ -10,7 +10,7 @@ import RestaurantPanel from '../components/HomePage/RestaurantPanel';
 import PageButton from '../components/HomePage/PageButton';
 import PerPageButton from '../components/HomePage/PerPageButton';
 import PopUp from '../components/HomePage/PopUp';
-import Navbar from "../components/LandingPage/NavbarHome";
+import Navbar from "../components/HomePage/NavbarHome";
 
 import { PREFERENCES, SELECTEDPREFERENCE } from '../constants';
 
@@ -95,16 +95,13 @@ function HomePage() {
   };
 
   useEffect(() => {
-    console.log("Ordered data has been updated, new data:", orderedData);
   }, [orderedData]);
 
 
   useEffect(() => {
-    // console.log("Preferences updated in App.jsx:", preferences);
   }, [preferences]);
 
   useEffect(() => {
-    // console.log("Selected preferences updated:", selectedPreferences);
   }, [selectedPreferences]);
 
   const handleSideBarChange = (childData) => {
@@ -121,88 +118,54 @@ function HomePage() {
 
   return (
     <>
-    <Navbar />
-    <ThemeProvider theme={theme}>
-      <div>
-        <div 
-          className='h-[100vh]'
-        >
-          { popUpState===true
-            ?<PopUp onClick={setPopUpState}/>
-            :<></>
-          }
-          
-          <div className='
-            w-screen
-            h-[100vh]
-            relative
-            flex
-            '
-            >
-            
-            <SideBox preferences={preferences} numberOfBusinesses={numberOfBusinesses} onDataFromChild={handleDataFromChild} confirmFilter={sendDataToBackend} applyPreferences={applyPreferences} updatePreferences={updatePreferences}/>
-
-            <div className='
-            h-[98vh]
-            relative
-            inline-flex
-            flex-col
-            p-0
-            mx-[2vw]
-            '>
-            <RecommendationBox restaurants={orderedData} onclick={handleDataSorted}>
-
-              {Array.from({ length: currentPage }, (_,index) => (
-                <RestaurantPanel key={index} ranking={index+1} info={orderedData} showing={numberOfRestaurants} page={pageNumber} onClick={()=>handleSelectedRestuarant(index+numberOfRestaurants*(pageNumber-1)+1)} buttonPress={setPopUpState}/>
-              ))}
-
-              <div className='
-                h-[1vh]
-                relative
-                '>
-              </div>
-
-            </RecommendationBox>
-              <div className='
-                h-[5vh]
-                w-[51vw] 
-                border-0
-                flex
-                
-              '>
-                <div className='
-                h-[5vh]
-                w-[51vw] 
-                absolute
-                '>
-                  <div className='block mx-auto w-[24vh]'>
-
-                    <PageButton key={1} pageNumber={pageNumber} buttonNumber={1} onClick={() => handlePageButtonClick(1)}/>
-                    { (maxPage)<=5
-                      ? Array.from({ length: maxPage-1 }, (_,index) => (
-                        <PageButton key={index+2} pageNumber={pageNumber} buttonNumber={index+2} onClick={() => handlePageButtonClick(index+2)}/>
-                        ))
-                      : <>
-                          <PageButton key={2} pageNumber={pageNumber} buttonNumber={Math.min(Math.max(2,pageNumber-1),maxPage-3)} onClick={() => handlePageButtonClick(Math.min(Math.max(2,pageNumber-1),maxPage-3))}/>
-                          <PageButton key={3} pageNumber={pageNumber} buttonNumber={Math.min(Math.max(3,pageNumber),maxPage-2)} onClick={() => handlePageButtonClick(Math.min(Math.max(3,pageNumber),maxPage-2))}/>
-                          <PageButton key={4} pageNumber={pageNumber} buttonNumber={Math.min(Math.max(4,pageNumber+1),maxPage-1)} onClick={() => handlePageButtonClick(Math.min(Math.max(4,pageNumber+1),maxPage-1))}/>
-                          <PageButton key={5} pageNumber={pageNumber} buttonNumber={Math.min(Math.max(5,pageNumber+5),maxPage)} onClick={() => handlePageButtonClick(Math.max(Math.min(Math.max(5,pageNumber+5),maxPage)))}/>
-                        </>
-                    }
-                    
+    <div className='md:overflow-y-hidden'>
+      <Navbar />
+      <ThemeProvider theme={theme}>
+        <div>
+          <div className='md:h-[100vh]'>
+            { popUpState===true
+              ?<PopUp onClick={setPopUpState}/>
+              :<></>
+            }
+            <div className='w-screen md:h-[91vh] relative flex md:flex-row flex-col'>
+              <SideBox preferences={preferences} numberOfBusinesses={numberOfBusinesses} onDataFromChild={handleDataFromChild} confirmFilter={sendDataToBackend} applyPreferences={applyPreferences} updatePreferences={updatePreferences}/>
+              <div className='h-[91vh] relative inline-flex flex-col p-0 mx-[2vw]'>
+                  <RecommendationBox restaurants={orderedData} onclick={handleDataSorted}>
+                    {Array.from({ length: currentPage }, (_, index) => (
+                      <RestaurantPanel key={index} ranking={index + 1} info={orderedData} showing={numberOfRestaurants} page={pageNumber} onClick={() => handleSelectedRestuarant(index + numberOfRestaurants * (pageNumber - 1) + 1)} buttonPress={setPopUpState} />
+                    ))}
+                    <div className='h-[1vh] relative'></div>
+                  </RecommendationBox>
+                  <div className='h-[5vh] w-[51vw] border-0 flex'>
+                    <div className='h-[5vh] w-[51vw] absolute'>
+                      <div className='block mx-auto md:w-[24vh]'>
+                        <PageButton key={1} pageNumber={pageNumber} buttonNumber={1} onClick={() => handlePageButtonClick(1)} />
+                        {(maxPage) <= 5
+                          ? Array.from({ length: maxPage - 1 }, (_, index) => (
+                            <PageButton key={index + 2} pageNumber={pageNumber} buttonNumber={index + 2} onClick={() => handlePageButtonClick(index + 2)} />
+                          ))
+                          : <>
+                            <PageButton key={2} pageNumber={pageNumber} buttonNumber={Math.min(Math.max(2, pageNumber - 1), maxPage - 3)} onClick={() => handlePageButtonClick(Math.min(Math.max(2, pageNumber - 1), maxPage - 3))} />
+                            <PageButton key={3} pageNumber={pageNumber} buttonNumber={Math.min(Math.max(3, pageNumber), maxPage - 2)} onClick={() => handlePageButtonClick(Math.min(Math.max(3, pageNumber), maxPage - 2))} />
+                            <PageButton key={4} pageNumber={pageNumber} buttonNumber={Math.min(Math.max(4, pageNumber + 1), maxPage - 1)} onClick={() => handlePageButtonClick(Math.min(Math.max(4, pageNumber + 1), maxPage - 1))} />
+                            <PageButton key={5} pageNumber={pageNumber} buttonNumber={Math.min(Math.max(5, pageNumber + 5), maxPage)} onClick={() => handlePageButtonClick(Math.max(Math.min(Math.max(5, pageNumber + 5), maxPage)))} />
+                          </>
+                        }
+                      </div>
+                      <div className='md:relative absolute md:left-0 left-full flex flex-row-reverse'>
+                        <PerPageButton key={1} buttonNumber={20} onClick={() => handleNumberOfRestaurants(20)} numberOfRestaurants={numberOfRestaurants} />
+                        <PerPageButton key={2} buttonNumber={10} onClick={() => handleNumberOfRestaurants(10)} numberOfRestaurants={numberOfRestaurants} />
+                        <PerPageButton key={3} buttonNumber={5} onClick={() => handleNumberOfRestaurants(5)} numberOfRestaurants={numberOfRestaurants} />
+                      </div>
+                    </div>
                   </div>
-                  <PerPageButton key={1} buttonNumber={20} onClick={() => handleNumberOfRestaurants(20)} numberOfRestaurants={numberOfRestaurants}/>
-                  <PerPageButton key={2} buttonNumber={10} onClick={() => handleNumberOfRestaurants(10)} numberOfRestaurants={numberOfRestaurants}/>
-                  <PerPageButton key={3} buttonNumber={5} onClick={() => handleNumberOfRestaurants(5)} numberOfRestaurants={numberOfRestaurants}/>
                 </div>
-              </div>
+              <MapComponent info={orderedData} showing={numberOfRestaurants} page={pageNumber} currentPage={currentPage} selectedPreferences={selectedPreferences} preferences={preferences} updatePreferences={updatePreferences}/>
             </div>
-
-            <MapComponent info={orderedData} showing={numberOfRestaurants} page={pageNumber} currentPage={currentPage} selectedPreferences={selectedPreferences} preferences={preferences} updatePreferences={updatePreferences}/>
           </div>
         </div>
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    </div>
     </>
   );
 }

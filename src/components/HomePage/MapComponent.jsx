@@ -440,17 +440,22 @@ const MapComponent = ({info, showing, page, currentPage, selectedPreferences, pr
       inline-flex
       justify-center
       items-center
-      w-[25vw]
-      h-[98vh]
-      z-0 
+      w-[90vw]
+      md:w-[25vw]
+      h-[75vh]
+      mb-[3vh]
+      md:mb-none
+      md:h-[89vh]
+      md:z-0 
       border-2
       shadow-lg
-      mr-[2vw]
+      md:mr-[1vw]
       float-right
       overflow-hidden
       rounded-md
       top-[1vh]
-      bg-dark-gray
+      mx-auto
+      md:mx-none
       "
     >
       <div className="
@@ -471,25 +476,6 @@ const MapComponent = ({info, showing, page, currentPage, selectedPreferences, pr
           dragging={false}
           attributionControl={false}
           >
-
-            {/* Terrain Background */}
-            {/* <TileLayer
-                url="https://tiles.stadiamaps.com/tiles/stamen_terrain_background/{z}/{x}/{y}{r}.png"
-                maxZoom={20}
-                attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
-            /> */}
-            {/* Terrain Lines */}
-            {/* <TileLayer
-                url="https://tiles.stadiamaps.com/tiles/stamen_terrain_lines/{z}/{x}/{y}{r}.png"
-                maxZoom={20}
-                attribution=''
-            /> */}
-            {/* Terrain Labels */}
-            {/* <TileLayer
-                url="https://tiles.stadiamaps.com/tiles/stamen_terrain_labels/{z}/{x}/{y}{r}.png"
-                maxZoom={20}
-                attribution=''
-            /> */}
             <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
