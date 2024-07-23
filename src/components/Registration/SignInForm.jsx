@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import {
   Input,
   Checkbox,
@@ -19,7 +20,11 @@ export function SignInForm() {
     event.preventDefault();
     
     if (!agreed) {
-      alert('You must agree to the Terms and Conditions to sign in.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You must agree to the Terms and Conditions to sign in.',
+      });
       return;
     }
 
@@ -30,15 +35,27 @@ export function SignInForm() {
       });
       console.log('Response:', response.data);
       if (response.data.message && response.data.message.includes("verify your email")) {
-        alert('Please verify your email before signing in.');
+        Swal.fire({
+          icon: 'warning',
+          title: 'Verify Email',
+          text: 'Please verify your email before signing in.',
+        });
       } else {
-        alert('Login successful!');
+        Swal.fire({
+          icon: 'success',
+          title: 'Login successful!',
+          text: 'You are now logged in.',
+        });
         localStorage.setItem('token', response.data.access_token);
         navigate('/home');
       }
     } catch (error) {
       console.error('Login failed:', error.response ? error.response.data : error.message);
-      alert('Login failed: ' + (error.response ? error.response.data.message : error.message));
+      Swal.fire({
+        icon: 'error',
+        title: 'Login Failed',
+        text: error.response ? error.response.data.message : error.message,
+      });
     }
   };
 
@@ -115,9 +132,9 @@ export function SignInForm() {
               containerProps={{ className: "-ml-2.5 font-display" }}
             />
             <Typography variant="medium" className="text-lg text-orange-900 hover:text-white font-display">
-              <a href="#">
+              <Link to="/forgot_password">
                 Forgot Password
-              </a>
+              </Link>
             </Typography>
           </div>
           <div className="space-y-4 mt-8">

@@ -120,7 +120,6 @@ const SettingsBox = ({prefs, onDataFromParent }) => {
     const hoodList=[];
 
     function blank(input){
-        // console.log(input);
     }
 
     for(let i=0; i<hoods.length; i++){

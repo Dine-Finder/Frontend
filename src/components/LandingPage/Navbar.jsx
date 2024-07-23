@@ -6,7 +6,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
-  const navigate = useNavigate(); // Initialize the useNavigate hook
+  const navigate = useNavigate();
 
   const toggleNavbar = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);

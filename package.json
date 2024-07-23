@@ -32,6 +32,7 @@
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.24.1",
     "react-star-ratings": "^2.3.0",
+    "react-sweetalert2": "^0.6.0",
     "simplebar-react": "^3.2.6"
   },
   "devDependencies": {

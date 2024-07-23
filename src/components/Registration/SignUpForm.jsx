@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import {
   Input,
   Checkbox,
@@ -21,10 +22,10 @@ export function SignUpForm() {
   const navigate = useNavigate();
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value, checked, type } = event.target;
     setState(prevState => ({
       ...prevState,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
   };
 
@@ -33,22 +34,38 @@ export function SignUpForm() {
     const { name, email, password, confirmPassword, agreeToTerms } = state;
 
     if (!name.trim()) {
-      alert('Name field cannot be blank.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Name Required',
+        text: 'Name field cannot be blank.'
+      });
       return;
     }
 
     if (!email.trim()) {
-      alert('Email field cannot be blank.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Email Required',
+        text: 'Email field cannot be blank.'
+      });
       return;
     }
 
     if (password !== confirmPassword) {
-      alert('Passwords do not match!');
+      Swal.fire({
+        icon: 'error',
+        title: 'Passwords Mismatch',
+        text: 'Passwords do not match!'
+      });
       return;
     }
 
     if (!agreeToTerms) {
-      alert('You must agree to the Terms and Conditions to register.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Terms and Conditions',
+        text: 'You must agree to the Terms and Conditions to register.'
+      });
       return;
     }
 
@@ -59,11 +76,20 @@ export function SignUpForm() {
         password: password
       });
       console.log('Response:', response.data);
-      alert('Registration successful! Please check your email to confirm your registration.');
-      navigate('/login');
+      Swal.fire({
+        icon: 'success',
+        title: 'Registration Successful',
+        text: 'Registration successful! Please check your email to confirm your registration.'
+      }).then(() => {
+        navigate('/login');
+      });
     } catch (error) {
       console.error('Registration failed:', error.response ? error.response.data.message : error.message);
-      alert('Registration failed: ' + (error.response ? error.response.data.message : error.message));
+      Swal.fire({
+        icon: 'error',
+        title: 'Registration Failed',
+        text: error.response?.data?.message || 'Registration failed. Please try again.'
+      });
     }
   };
 
