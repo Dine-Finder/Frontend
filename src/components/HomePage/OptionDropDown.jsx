@@ -8,6 +8,8 @@ const OptionDropDown = ({ label, data, value, onChange }) => {
                     appearance-none
                     w-full
                     bg-gray-800
+                    md:text-base
+                    text-sm
                     text-white
                     border-2 
                     border-orange-500 

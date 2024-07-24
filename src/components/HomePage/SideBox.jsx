@@ -5,7 +5,7 @@ import CurrentRestuarants from './CurrentRestuarants';
 import SettingsBox from './SettingsBox';
 import { Menu, X } from "lucide-react";
 
-const SideBox = ({ preferences, numberOfBusinesses, onDataFromChild, applyPreferences, confirmFilter }) => {
+const SideBox = ({ preferences, numberOfBusinesses, onDataFromChild, applyPreferences, confirmFilter, updatePreferences}) => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   const toggleNavbar = () => {

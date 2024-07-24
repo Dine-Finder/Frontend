@@ -6,7 +6,7 @@ const PopUpButton = ({ onClick }) => {
     return (
         <div className='relative'>
             <button 
-                className='absolute h-[30px] right-0 bottom-0 p-2 flex justify-center items-center'
+                className='absolute h-[30px] right-0 bottom-0 p-2 flex justify-center items-center text-base'
                 onClick={(e) => {
                     e.stopPropagation();
                     onClick(e);

@@ -94,18 +94,18 @@ export function SignUpForm() {
   };
 
   return (
-    <section className="box-border m-8 flex flex-row-reverse gap-4 font-display h-screen">
+    <section className="box-border md:m-8 my-8 flex flex-row-reverse gap-4 font-display h-full">
       <div>
         <Link to="/" className="absolute z-10 right-10">
           <i className="fa-solid fa-landmark text-orange-500 text-2xl hover:scale-105 active:scale-95"></i>
         </Link>
       </div>
-      <div className="w-full lg:w-3/5">
+      <div className="w-full lg:w-3/5 flex flex-col items-center justify-center ml-4">
         <div className="text-center mt-10">
           <Typography variant="h2" className="font-bold mb-4 font-display">Join Us Today</Typography>
           <Typography variant="paragraph" color="orange" className="text-lg font-normal font-display">Enter your details to register.</Typography>
         </div>
-        <form onSubmit={handleSubmit} className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
+        <form onSubmit={handleSubmit} className="mt-8 mb-2 md:mx-auto w-80 max-w-screen-lg lg:w-1/2">
           <div className="mb-1 flex flex-col gap-6">
             <Typography variant="medium" color="white" className="-mb-3 font-medium font-display">
               Name

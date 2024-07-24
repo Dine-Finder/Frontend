@@ -8,13 +8,15 @@ const loadScript = (url, callback) => {
         script.src = url;
         script.async = true;
         script.defer = true;
-        script.onload = () => callback && callback();
+        script.onload = () => {
+            console.log(`Script loaded: ${url}`);
+            callback && callback();
+        };
         document.head.appendChild(script);
     } else if (existingScript && callback) {
         if (existingScript.getAttribute('data-loaded') === 'true') {
             callback();
         } else {
-            // Set an onload function if not already loaded
             existingScript.onload = () => {
                 existingScript.setAttribute('data-loaded', 'true');
                 callback();
@@ -22,6 +24,7 @@ const loadScript = (url, callback) => {
         }
     }
 };
+
 
 const SearchBar = ({ onDataFromParent }) => {
     const [selectedPlace, setSelectedPlace] = useState(null);
@@ -63,7 +66,7 @@ const SearchBar = ({ onDataFromParent }) => {
     }, [selectedPlace, onDataFromParent]);
 
     return (
-        <div className='m-2'>
+        <div className='m-1'>
             <input
                 ref={inputRef}
                 type="text"
@@ -72,6 +75,7 @@ const SearchBar = ({ onDataFromParent }) => {
                     appearance-none
                     w-full
                     bg-gray-800
+                    md:text-base
                     text-sm
                     text-white
                     border-2

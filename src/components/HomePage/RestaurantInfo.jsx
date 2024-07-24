@@ -23,7 +23,8 @@ const RestaurantInfo = ({ restaurant }) => {
         relative
         inline-flex
         flex-col
-        overflow-hidden
+        md:overflow-hidden
+        overflow-y-scroll
         z-4
         "
     > 
@@ -34,13 +35,14 @@ const RestaurantInfo = ({ restaurant }) => {
         <div className='
           text-main
           font-bold
-          text-lg
+          md:text-2xl
+          text-xl
           overflow-none
           text-orange-500
           '>
             <AnimateText>{restaurant.name}</AnimateText>
         </div>
-        <p className='text-sm'><AnimateText>{address}</AnimateText></p>
+        <p className='md:text-lg text-sm '><AnimateText>{address}</AnimateText></p>
         <div>
           <StarRatings
             rating={restaurant.rating}
@@ -50,12 +52,12 @@ const RestaurantInfo = ({ restaurant }) => {
             numberOfStars={5}
           />
         </div>
-        <p className='inline text-sm'><AnimateText>Locale Busyness: </AnimateText></p>
-        <p className={`inline text-sm ${localeBusyness=="Busy" ? 'text-red-500' : localeBusyness=="Average" ? 'text-orange-500':'text-green-500'}`}><AnimateText>{localeBusyness}</AnimateText></p>
+        <p className='inline md:text-lg text-sm '><AnimateText>Locale Busyness: </AnimateText></p>
+        <p className={`inline md:text-lg text-sm  ${localeBusyness=="Busy" ? 'text-red-500' : localeBusyness=="Average" ? 'text-orange-500':'text-green-500'}`}><AnimateText>{localeBusyness}</AnimateText></p>
         <br />
-        <p className='inline text-sm'><AnimateText>Restaurant Busyness: </AnimateText></p>
-        <p className={`inline text-sm ${restaurantBusyness==="Busy" ? 'text-red-500' : restaurantBusyness==="Average" ? 'text-orange-500':'text-green-500'}`}><AnimateText>{restaurantBusyness}</AnimateText></p>
-        <p className='text-sm text-green-500'><AnimateText>Price Range: {restaurant.price}</AnimateText></p>
+        <p className='inline md:text-lg text-sm '><AnimateText>Restaurant Busyness: </AnimateText></p>
+        <p className={`inline md:text-lg text-sm ${restaurantBusyness==="Busy" ? 'text-red-500' : restaurantBusyness==="Average" ? 'text-orange-500':'text-green-500'}`}><AnimateText>{restaurantBusyness}</AnimateText></p>
+        <p className='md:text-lg text-sm text-green-500'><AnimateText>Price Range: {restaurant.price}</AnimateText></p>
         {randomTags.map((tag, index) => (
           <span key={index} className='text-sm text-blue-500 hover:text-blue-700 cursor-pointer'>
           <AnimateText>

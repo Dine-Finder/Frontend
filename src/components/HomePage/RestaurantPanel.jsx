@@ -12,15 +12,19 @@ const RestaurantPanel = ({ranking, info, showing, page, onClick, buttonPress}) =
 
   const sendClick = (e) => {
     e.stopPropagation();
-    window.open(selectedRest.url, '_blank', 'noopener,noreferrer');
-    // buttonPress(true);
+    //window.open(selectedRest.url, '_blank', 'noopener,noreferrer');
+    buttonPress(true, ranking-1+showing*(page-1));
   }
+
+  const images = []
+  images.push(selectedRest['image_url'])
+
 
   return (
     <div className="
         hover:bg-light
         h-[250px]
-        md:h-[200px]
+        md:h-[250px]
         w-full
         z-100
         mb-6
@@ -34,7 +38,7 @@ const RestaurantPanel = ({ranking, info, showing, page, onClick, buttonPress}) =
         "
         onClick={onClick}
     > 
-      <ImageCarousel restaurant={selectedRest}/>
+      <ImageCarousel images={images} offset={0}/>
       <RankIcon ranking={ranking+(page-1)*showing} />
       <RestaurantInfo restaurant={selectedRest}/>
       <PopUpButton onClick={sendClick}/>

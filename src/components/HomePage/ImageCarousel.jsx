@@ -1,11 +1,10 @@
+//src ImageCarousel.jsx
 import React, {useState, useEffect} from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 
-const ImageCarousel = ({restaurant}) => {
-    const images = []
-    images.push(restaurant['image_url'])
+const ImageCarousel = ({images,offset}) => {
 
-    const[currentIndex, setCurrentIndex]= useState(0)
+    const[currentIndex, setCurrentIndex]= useState(offset)
 
     const[direction, setDirection]= useState("left")
 
@@ -30,7 +29,7 @@ const ImageCarousel = ({restaurant}) => {
             setCurrentIndex((prevIndex) =>
                 prevIndex === images.length - 1 ? 0 : prevIndex + 1
             );
-        }, []); // Change image every 5 seconds
+        }, 3000); // Change image every 3 seconds
     
         return () => clearInterval(intervalId);
       }, [images.length]);
@@ -64,9 +63,11 @@ const ImageCarousel = ({restaurant}) => {
     return (
       <div className='
         h-full
-        w-1/3
+        w-[32%]
         relative
         inline-flex
+        border-2
+        border-secondary
         overflow-hidden
         float-left
         rounded-md
@@ -92,58 +93,6 @@ const ImageCarousel = ({restaurant}) => {
             />
         </AnimatePresence>
         </div>
-        {/* <div className='
-            flex
-            justify-between
-        '>
-            <div className='
-                absolute
-                bg-transparent
-                hover:bg-yellowfade
-                h-[20px]
-                w-[20px]
-                p-[0px_2px_2px_4px]
-                my-auto mx-[2px]
-                top-0   
-                bottom-0
-                left-0
-                cursor-pointer
-                rounded-[50%]
-            '
-             onClick={handlePrev}>
-                <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    height='20'
-                    viewBox='0 96 960 960'
-                    width='20'
-                >
-                    <path d='M400 976 0 576l400-400 56 57-343 343 343 343-56 57Z' />
-                </svg>
-            </div>
-            <div className='
-                 absolute
-                bg-transparent
-                hover:bg-yellowfade
-                h-[20px]
-                w-[20px]
-                p-[0px_0px_1px_2px]
-                my-auto mx-[2px]
-                rounded-[50%]
-                top-0
-                bottom-0
-                right-0
-                cursor-pointer
-                ' onClick={handleNext}>
-                <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        height='20'
-                        viewBox='0 96 960 960'
-                        width='20'
-                    >
-                        <path d="m304 974-56-57 343-343-343-343 56-57 400 400-400 400Z" />
-                </svg>
-            </div>
-        </div> */}
       </div>
     )
   }

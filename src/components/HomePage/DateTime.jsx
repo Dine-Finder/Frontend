@@ -23,7 +23,7 @@ const DateTime = ({ date, time, dayTimeUpdate }) => {
 
     return (
         <div>
-            <div className='h-[26px] border rounded-md border-orange-500'>
+            <div className='h-[26px] border rounded-md border-orange-500 text-base'>
                 <button className={
                     `w-1/4 
                     h-full
@@ -65,7 +65,7 @@ const DateTime = ({ date, time, dayTimeUpdate }) => {
                     Thur
                 </button>
             </div>
-            <div className='h-[26px] mx-7 mt-1 border rounded-md border-orange-500'>
+            <div className='h-[26px] mx-7 mt-1 border rounded-md border-orange-500 text-base'>
                 <button className={
                     `w-1/3
                     h-full

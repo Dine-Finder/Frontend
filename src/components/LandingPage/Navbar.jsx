@@ -30,8 +30,8 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <Link to="#hero" onClick={(e) => handleNavClick(e, "#hero")}>
             <div className="flex items-center flex-shrink-0 hover:scale-110 active:scale-90">
-              <img className="h-10 w-10 mr-2" src={logo} alt="Logo" />
-              <span className="text-xl tracking-tight ">DineFinder</span>
+              <img className="h-14 w-14 mr-2" src={logo} alt="Logo" />
+              <span className="text-2xl font-bold tracking-tight ">DineFinder</span>
             </div>
           </Link>
           <ul className="hidden lg:flex ml-14 space-x-12">
@@ -42,10 +42,10 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="hidden lg:flex justify-center space-x-12 items-center">
-            <button onClick={handleNavigate('/login')} className="py-2 px-3 border rounded-md hover:scale-110 active:scale-90">
+            <button onClick={handleNavigate('/login')} className="py-2 px-3 text-base border rounded-md hover:scale-110 active:scale-90">
               Sign In
             </button>
-            <button onClick={handleNavigate('/register')} className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md hover:scale-110 active:scale-90">
+            <button onClick={handleNavigate('/register')} className="bg-gradient-to-r text-base from-orange-500 to-orange-800 py-2 px-3 rounded-md hover:scale-110 active:scale-90">
               Create an account
             </button>
           </div>

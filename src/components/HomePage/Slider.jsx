@@ -20,7 +20,7 @@ const RangeSlider = ( {min, max, step, onDataFromParent} ) => {
 
   return (
       <div className='mx-2 flex flex-col items-center justify-center'>
-        <label className="block text-sm font-medium text-gray-700">Radius: {radius} miles</label>
+        <label className="block text-sm font-medium text-white">Radius: {radius} miles</label>
         {/* <input
           type="range"
           value={radius}
@@ -30,7 +30,7 @@ const RangeSlider = ( {min, max, step, onDataFromParent} ) => {
           onChange={handleChange}
           className="range range-error range-xs"
         /> */}
-      <Box sx={{ width: 195 }}>
+      <Box sx={{ width: "100%" }}>
       <Slider
         type="range"
         value={radius}

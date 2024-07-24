@@ -60,6 +60,7 @@ const SettingsBox = ({prefs, onDataFromParent }) => {
     useEffect(()=>{
         setPreferences({
             location:{
+                locationType: locationType,
                 coordinates:[longitude,latitude],
                 radius: radius,
                 neighborhood: neighborhood
@@ -81,7 +82,7 @@ const SettingsBox = ({prefs, onDataFromParent }) => {
                 priority:restaurantBusynessPriority 
             }
         })
-    }, [longitude, latitude, radius, neighborhood, day, time, localeBusyness, restaurantBusyness, localeBusynessPriority, restaurantBusynessPriority]);
+    }, [locationType, longitude, latitude, radius, neighborhood, day, time, localeBusyness, restaurantBusyness, localeBusynessPriority, restaurantBusynessPriority]);
 
     useEffect(()=>{
         sendDataToParent();
@@ -124,7 +125,6 @@ const SettingsBox = ({prefs, onDataFromParent }) => {
 
     for(let i=0; i<hoods.length; i++){
         hoodList.push(hoods[i]['properties']['ntaname'])
-
     }
     hoodList.sort();
 
@@ -139,106 +139,59 @@ const SettingsBox = ({prefs, onDataFromParent }) => {
         m-3
         z-10
         text-center
+        md:text-xl
+        text-lg
         z-10
         "    
         >
             <Setting title={'Location'} optional={false} priorityUpdate={blank}>
                 <div className='mx-[5px] flex justify-between items-center rounded-md border border-orange-500'>
-                    { (locationType==="Neighborhood")
+                    { (prefs.location.locationType==="Neighborhood")
                         ?
                         <button 
-                            className='text-xs text-white-500 w-1/2 p-2 rounded-md bg-gradient-to-r from-orange-400 to-orange-800'
+                            className='md:text-base text-sm text-white-500 w-1/2 p-2 rounded-md bg-gradient-to-r from-orange-400 to-orange-800'
                         >
                             Neighborhood
                         </button >
                         :
                         <button 
-                            className='w-1/2 p-2 hover:bg-white text-xs hover:text-orange-500 rounded-md'
+                            className='w-1/2 p-2 hover:bg-white md:text-base text-sm hover:text-orange-500 rounded-md'
                             onClick={() => setLocationType('Neighborhood')}
                         >
                            Neighborhood
                         </button >
                     }
-                    { (locationType==="Address")
+                    { (prefs.location.locationType==="Address")
                         ?
                         <button 
-                            className='text-xs text-white-500 w-1/2 p-2 rounded-md bg-gradient-to-r from-orange-800 to-orange-400'
+                            className='md:text-base text-sm text-white-500 w-1/2 p-2 rounded-md bg-gradient-to-r from-orange-800 to-orange-400'
                         >
                             Address
                         </button >
                         :
                         <button 
-                            className='w-1/2 p-2 hover:bg-white text-xs hover:text-orange-500 rounded-md'
+                            className='w-1/2 p-2 hover:bg-white md:text-base text-sm hover:text-orange-500 rounded-md'
                             onClick={() => setLocationType('Address')}
                         >
                             Address
                         </button >
                     }
                 </div>
-                { (locationType==="Neighborhood")
+                { (prefs.location.locationType==="Neighborhood")
                     ?
                     <>
                      <OptionDropDown 
                         label="Neighborhoods"
                         data={hoodList}
-                        value={neighborhood}
+                        value={prefs['location']['neighborhood']}
                         onChange={setNeighborhood}
                      />  
                     </>
                     :
                     <>
-                        { (locationType==="Address")
+                        { (prefs.location.locationType==="Address")
                             ?
                             <>
-                                <input
-                                    type="number"
-                                    id="lon"
-                                    value={longitude}
-                                    min = {40.7009}
-                                    max = {40.8777}
-                                    step = {0.001}
-                                    onChange={(e) => setLongitude(parseFloat(e.target.value))}
-                                    className='
-                                        m-2
-                                        text-sm
-                                        appearance-none
-                                        bg-gray-800
-                                        text-white
-                                        border-2
-                                        border-orange-500 
-                                        rounded-md 
-                                        p-2
-                                        focus:outline-none
-                                        focus:border-orange-600 
-                                        focus:ring-1 
-                                        focus:ring-orange-600
-                                    '
-                                />
-                                
-                                <input
-                                    type="number"
-                                    id="lat"
-                                    value={latitude}
-                                    min = {-74.0191}
-                                    max = {-73.9141}
-                                    step = {0.001}
-                                    onChange={(e) => setLatitude(parseFloat(e.target.value))}
-                                    className='
-                                        m-2
-                                        text-sm
-                                        appearance-none
-                                        bg-gray-800
-                                        text-white
-                                        border-2
-                                        border-orange-500 
-                                        rounded-md 
-                                        p-2
-                                        focus:outline-none
-                                        focus:border-orange-600 
-                                        focus:ring-1 
-                                        focus:ring-orange-600
-                                    '
-                                />
 
                                 <SearchBar onDataFromParent={handleDataFromSearchBox}/>
 

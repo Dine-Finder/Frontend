@@ -60,18 +60,18 @@ export function SignInForm() {
   };
 
   return (
-    <section className="box-border m-8 flex gap-4 font-display h-screen">
+    <section className="box-border md:m-8 my-8 flex gap-4 font-display h-full">
       <div>
         <Link to="/" className="absolute z-10 left-10">
           <i className="fa-solid fa-landmark text-orange-500 text-2xl hover:scale-105 active:scale-95"></i>
         </Link>
       </div>
-      <div className="w-full lg:w-3/5">
+      <div className="w-full lg:w-3/5 flex flex-col items-center justify-center mr-4">
         <div className="text-center mt-24">
           <Typography variant="h2" className="font-bold mb-4 font-display">Sign In</Typography>
           <Typography variant="paragraph" color="orange" className="text-lg font-normal font-display">Enter your email and password to Sign In.</Typography>
         </div>
-        <form onSubmit={handleSubmit} className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
+        <form onSubmit={handleSubmit} className="mt-8 mb-2 md:mx-auto w-80 max-w-screen-lg lg:w-1/2">
           <div className="mb-1 flex flex-col gap-6">
             <Typography variant="medium" color="white" className="-mb-3 font-medium font-display">
               Your email

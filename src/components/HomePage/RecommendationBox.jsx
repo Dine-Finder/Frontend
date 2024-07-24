@@ -34,7 +34,7 @@ const RecommendationBox = ({ children, restaurants, onclick }) => {
         p-2
         shadow-lg
         text-4xl
-        md:text-6xl
+        md:text-7xl
         font-bold
         items-center
         z-10
@@ -44,7 +44,7 @@ const RecommendationBox = ({ children, restaurants, onclick }) => {
           Top Recommendations
         </div>
         <div>
-            <h1 className='text-center'>Enter Preference</h1>
+            <h1 className='text-center text-xl'>Enter Preference</h1>
             <TagsInput restaurant={restaurants} onClick={onclick} />
         </div>
 

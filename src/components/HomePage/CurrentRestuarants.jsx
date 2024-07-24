@@ -7,6 +7,8 @@ const CurrentRestuarants = ({numberOfBusinesses}) => {
         w-[96%]
         border
         rounded-md
+        md:text-2xl
+        text-xl
         py-3
         px-4
         m-3
@@ -16,8 +18,8 @@ const CurrentRestuarants = ({numberOfBusinesses}) => {
         > 
             <p className=''>Current Filters</p>
             {numberOfBusinesses>99 
-            ?<p className='font-bold'>99+ Restaurants</p>
-            : <p className='font-bold text-2xl'>{numberOfBusinesses} Restaurants</p>}
+            ?<p className='font-bold md:text-2xl text-xl'>99+ Restaurants</p>
+            : <p className='font-bold md:text-2xl text-xl'>{numberOfBusinesses} Restaurants</p>}
         </div>
     )
 }

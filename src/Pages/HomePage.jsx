@@ -21,11 +21,29 @@ function HomePage() {
   const [orderedData, setOrderedData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const[preferences, setPreferences] = useState(PREFERENCES);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); 
+  const [numberOfRestaurants, setNumberOfRestaurants] = useState(10);
+  const [pageNumber, setPageNumber] = useState(1);
+  const numberOfBusinesses = orderedData.length;
+  const maxPage = Math.floor(numberOfBusinesses/numberOfRestaurants) + Math.ceil((numberOfBusinesses % numberOfRestaurants) / numberOfRestaurants);
+  const currentPage = Math.min(numberOfRestaurants, numberOfBusinesses - (pageNumber - 1) * numberOfRestaurants);
+  const [selectedRestaurant, setSelectedRestuarant] = useState(null);
+  const [popUpState, setPopUpState] = useState(false);
+  const [restaurantInfo, setRestaurantInfo] = useState(null);
+  const [popupLoading, setPopUpLoading] = useState(false);
+
+  const[selectedPreferences, setSelectedPreferences] = useState(SELECTEDPREFERENCE);
+
+  const openPopUp = (open, selected) => {
+    setPopUpState(open);
+    setSelectedRestuarant(selected);
+  };
 
 
   const sendDataToBackend = async () => {
     setIsLoading(true);
     try {
+      console.log(preferences)
       const response = await fetch('/api/restaurants', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -44,6 +62,28 @@ function HomePage() {
     }
   };
 
+
+  useEffect(() => {
+
+    if (popUpState && selectedRestaurant !== null && orderedData[selectedRestaurant]) {
+      const popupBusinessID=orderedData[selectedRestaurant]['restaurant_id'];
+      setPopUpLoading(true);
+      const apiKey = import.meta.env.VITE_YELP_API_KEY;
+      const options = { method: 'GET', headers: { accept: 'application/json', Authorization: `Bearer ${apiKey}` } };
+      fetch(`https://api.yelp.com/v3/businesses/${popupBusinessID}`, options)
+        .then(response => response.json())
+        .then(data => {
+          setRestaurantInfo(data);
+          console.log(data)  
+          setPopUpLoading(false);
+        })
+        .catch(err => {
+          console.error(err);
+          setPopUpLoading(false);
+        });
+    }
+  }, [popUpState]);
+
   const handleDataSorted = (sortedData) => {
     setOrderedData([...sortedData]);
   };
@@ -52,24 +92,12 @@ function HomePage() {
     sendDataToBackend();
   }, []);
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true); 
-  const [numberOfRestaurants, setNumberOfRestaurants] = useState(10);
-  const [pageNumber, setPageNumber] = useState(1);
-  const numberOfBusinesses = orderedData.length;
-  const maxPage = Math.floor(numberOfBusinesses/numberOfRestaurants) + Math.ceil((numberOfBusinesses % numberOfRestaurants) / numberOfRestaurants);
-  const currentPage = Math.min(numberOfRestaurants, numberOfBusinesses - (pageNumber - 1) * numberOfRestaurants);
-  const [selectedRestaurant, setSelectedRestuarant] = useState(null);
-  const [popUpState, setPopUpState] = useState(false);
-
-  const[selectedPreferences, setSelectedPreferences] = useState(SELECTEDPREFERENCE);
-
   const updatePreferences = (newPreferences) => {
     setPreferences(newPreferences)
   };
 
   const handleDataFromChild = (childData) => {
     setPreferences(childData);
-    // console.log("Child data received:", childData);
   };
 
   function handlePageButtonClick(buttonNumber){
@@ -92,6 +120,7 @@ function HomePage() {
 
   const applyPreferences = () => {
     setSelectedPreferences(preferences);
+    setPageNumber(1);
   };
 
   useEffect(() => {
@@ -110,21 +139,23 @@ function HomePage() {
 
   if (isLoading) {
     return (
-      <div className="loader-container">
-        <CircularProgress size={200} color="secondary"/>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className="loader-container">
+          <CircularProgress size={200} color= "primary"/>
+        </div>
+      </ThemeProvider>
     );
   }
 
   return (
     <>
-    <div className='md:overflow-y-hidden'>
+    <div className='mb-2'>
       <Navbar />
       <ThemeProvider theme={theme}>
         <div>
           <div className='md:h-[100vh]'>
             { popUpState===true
-              ?<PopUp onClick={setPopUpState}/>
+              ?<PopUp onClick={setPopUpState} info={orderedData} apidata={restaurantInfo} selectedRestuarant={selectedRestaurant} day={preferences['dayTime']['day']} isLoading={popupLoading}/>
               :<></>
             }
             <div className='w-screen md:h-[91vh] relative flex md:flex-row flex-col'>
@@ -132,13 +163,13 @@ function HomePage() {
               <div className='h-[91vh] relative inline-flex flex-col p-0 mx-[2vw]'>
                   <RecommendationBox restaurants={orderedData} onclick={handleDataSorted}>
                     {Array.from({ length: currentPage }, (_, index) => (
-                      <RestaurantPanel key={index} ranking={index + 1} info={orderedData} showing={numberOfRestaurants} page={pageNumber} onClick={() => handleSelectedRestuarant(index + numberOfRestaurants * (pageNumber - 1) + 1)} buttonPress={setPopUpState} />
+                      <RestaurantPanel key={index} ranking={index+1} info={orderedData} showing={numberOfRestaurants} page={pageNumber} onClick={()=>handleSelectedRestuarant(index+numberOfRestaurants*(pageNumber-1)+1)} buttonPress={openPopUp}/>
                     ))}
                     <div className='h-[1vh] relative'></div>
                   </RecommendationBox>
                   <div className='h-[5vh] w-[51vw] border-0 flex'>
                     <div className='h-[5vh] w-[51vw] absolute'>
-                      <div className='block mx-auto md:w-[24vh]'>
+                      <div className='block mx-auto md:w-[26vh]'>
                         <PageButton key={1} pageNumber={pageNumber} buttonNumber={1} onClick={() => handlePageButtonClick(1)} />
                         {(maxPage) <= 5
                           ? Array.from({ length: maxPage - 1 }, (_, index) => (
