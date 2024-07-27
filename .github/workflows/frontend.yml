@@ -1,0 +1,52 @@
+name: Build and Deploy Frontend
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Frontend code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Create .env file
+      run: |
+        echo "VITE_GOOGLE_MAPS_API_KEY=${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}" >> .env
+        echo "VITE_YELP_API_KEY=${{ secrets.VITE_YELP_API_KEY }}" >> .env
+
+    - name: Build Frontend
+      run: npm run build
+
+    - name: Checkout Backend code
+      uses: actions/checkout@v4
+      with:
+        repository: Resturant-Recommendation-System/Backend
+        path: Backend
+
+    - name: Copy build to Backend
+      run: |
+        cp -r build/* Backend/flaskapp/build/
+        cd Backend
+        git config user.name "Your Name"
+        git config user.email "your.email@example.com"
+        TIMESTAMP=$(date +"%d/%m/%Y %H:%M:%S")
+        git add flaskapp/build
+        git commit -m "Update frontend build $TIMESTAMP" || echo "No changes to commit"
+        git push origin main
+      
+    - name: Clean up
+      run: |
+        rm -rf Backend
