@@ -13,22 +13,24 @@ const GradientButton = styled(Button)({
     '&:hover': {
       background: 'linear-gradient(to right, #ea580c, #fdba74)',
     },
-  });
+});
 
 const TagsInput = ({ restaurant, onClick }) => {
     const [tags, setTags] = useState([]);
     const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = (event) => {
-        const value = event.target.value;
-        if (value.endsWith(',') && value.length > 1) {
-            const newTag = value.slice(0, -1).trim();
+        setInputValue(event.target.value);
+    };
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            const newTag = inputValue.trim();
             if (newTag && !tags.includes(newTag) && tags.length < 8) {
                 setTags([...tags, newTag]);
                 setInputValue('');
             }
-        } else {
-            setInputValue(value);
         }
     };
 
@@ -37,11 +39,10 @@ const TagsInput = ({ restaurant, onClick }) => {
         setTags(newTags);
     };
 
-    function take_input(tags, restaurant, onClick){
+    const takeInput = () => {
         const sortedData = processAndSortRestaurants(restaurant, tags);
         onClick(sortedData);
-    }
-
+    };
 
     return (
         <div className='flex justify-between items-center p-2'>
@@ -49,24 +50,24 @@ const TagsInput = ({ restaurant, onClick }) => {
                 {tags.map((tag, index) => (
                     <div key={index} style={{ margin: '5px', padding: '3px', backgroundColor: '#1F2937', borderRadius: '8px', fontSize: '12px' }}>
                         {tag}
-                        <button onClick={() => removeTag(index)} style={{ marginLeft: '10px', cursor: 'pointer' }}><i class="fa-solid fa-circle-xmark"></i></button>
+                        <button onClick={() => removeTag(index)} style={{ marginLeft: '10px', cursor: 'pointer' }}><i className="fa-solid fa-circle-xmark"></i></button>
                     </div>
                 ))}
                 <input
                     type="text"
                     value={inputValue}
                     onChange={handleInputChange}
-                    style={{ flex: '1', border: 'none', outline: 'none', fontSize: '16px', padding: '5px', borderRadius: '10px' }}
-                    placeholder="Add a tag..."
+                    onKeyDown={handleKeyDown}
+                    style={{ flex: '1', border: 'none', outline: 'none', fontSize: '16px', fontWeight: 'bold', padding: '5px', borderRadius: '10px' }}
+                    placeholder="Add a tag and press ENTER..."
                 />
             </div>
             <GradientButton
-            variant="contained hover:scale-105 active:scale-90"
-            style={{ borderRadius: '8px', marginRight: '8px', marginLeft: '8px', fontWeight: 'bold', color: 'your-color' }}
-            onClick={() => take_input(tags, restaurant, onClick)}>
-            APPLY
+                variant="contained hover:scale-105 active:scale-90"
+                style={{ borderRadius: '8px', marginRight: '8px', marginLeft: '8px', fontWeight: 'bold', color: 'your-color' }}
+                onClick={takeInput}>
+                APPLY
             </GradientButton>
-
         </div>
     );
 };

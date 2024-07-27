@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import ReactMarkdown from 'react-markdown';
+import { termsAndConditions } from '../../constants';
 import {
   Input,
   Checkbox,
@@ -18,7 +20,7 @@ export function SignUpForm() {
     confirmPassword: '',
     agreeToTerms: false
   });
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -166,7 +168,11 @@ export function SignUpForm() {
                   I agree to the&nbsp;
                   <a
                     href="#"
-                    className="font-normal text-black transition-colors hover:text-gray-900 underline"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsModalOpen(true);
+                    }}
+                    className="font-normal text-gray-500 transition-colors hover:text-gray-300 underline"
                   >
                     Terms and Conditions
                   </a>
@@ -182,7 +188,7 @@ export function SignUpForm() {
             Register Now
           </Button>
           <div className="space-y-4 mt-8">
-            <Button size="lg" color="white" className="flex items-center gap-2 justify-center shadow-md font-display hover:scale-105 active:scale-95" fullWidth>
+            <Button type="submit" size="lg" color="white" className="flex items-center gap-2 justify-center shadow-md font-display hover:scale-105 active:scale-95" fullWidth>
               <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_1156_824)">
                   <path d="M16.3442 8.18429C16.3442 7.64047 16.3001 7.09371 16.206 6.55872H8.66016V9.63937H12.9813C12.802 10.6329 12.2258 11.5119 11.3822 12.0704V14.0693H13.9602C15.4741 12.6759 16.3442 10.6182 16.3442 8.18429Z" fill="#4285F4" />
@@ -198,7 +204,7 @@ export function SignUpForm() {
               </svg>
               <span>Sign up With Google</span>
             </Button>
-            <Button size="lg" color="white" className="flex items-center gap-2 justify-center shadow-md font-display hover:scale-105 active:scale-95" fullWidth>
+            <Button type="submit" size="lg" color="white" className="flex items-center gap-2 justify-center shadow-md font-display hover:scale-105 active:scale-95" fullWidth>
               <img src="/img/twitter-logo.svg" height={24} width={24} alt="" />
               <span>Sign up With Twitter</span>
             </Button>
@@ -215,6 +221,20 @@ export function SignUpForm() {
           className="h-full w-full rounded-3xl border-2 border-orange-500"
         />
       </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-custom-dark p-8 rounded-lg border max-w-md w-[95vw]">
+            <h2 className="text-xl font-bold text-orange-600 mb-4">Terms and Conditions</h2>
+            <div className="mb-4 text-sm font-normal h-[70vh] overflow-scroll">
+              <ReactMarkdown>{termsAndConditions}</ReactMarkdown>
+            </div>
+            <Button onClick={() => setIsModalOpen(false)} className="bg-orange-500 hover:bg-orange-600 text-white">
+              Close
+            </Button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

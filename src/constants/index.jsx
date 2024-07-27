@@ -158,7 +158,6 @@ export const pricingOptions = [
 
 export const resourcesLinks = [
   { href: "#", text: "Getting Started" },
-  { href: "#", text: "Documentation" },
   { href: "#", text: "API Reference" },
   { href: "#", text: "FAQs" },
 ];
@@ -175,7 +174,6 @@ export const communityLinks = [
   { href: "#", text: "Local Dining Events" },
   { href: "#", text: "Meetups" },
   { href: "#", text: "Food Industry Conferences" },
-  { href: "#", text: "Career Opportunities" },
 ];
 
 const d = new Date();
@@ -231,3 +229,44 @@ restaurantBusyness:{
     importance: "Preference" 
 }
 }
+
+export const termsAndConditions = `
+
+  **1. Introduction**
+
+  Welcome to [Your Restaurant Recommendation System]! These Terms and Conditions ("Terms") govern your access to and use of our website and services. By using our services, you agree to these Terms. If you do not agree, please do not use our services.
+
+  **2. User Accounts**
+
+  To use certain features of our website, you may need to create a user account. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.
+
+  **3. Data Collection and Privacy**
+
+  We collect and store personal information that you provide to us, such as your email address, login credentials, and review data. This information is used to enhance your experience and provide personalized recommendations. Please refer to our Privacy Policy for more details on how we handle your data.
+
+  **4. User Reviews**
+
+  You are responsible for the content of any reviews you post on our website. By submitting reviews, you grant us a non-exclusive, royalty-free, perpetual, and worldwide license to use, modify, and display such content. Reviews should be accurate and respectful.
+
+  **5. Content Ownership**
+
+  All content on our website, including text, graphics, logos, and software, is the property of Dine Finder or its licensors and is protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works from our content without our express written permission.
+
+  **6. Limitation of Liability**
+
+  Our services are provided "as is" without any warranties of any kind. We do not guarantee the accuracy, reliability, or availability of our services. In no event shall we be liable for any direct, indirect, incidental, or consequential damages arising from your use of our services.
+
+  **7. Changes to Terms**
+
+  We may update these Terms from time to time. We will notify you of any changes by posting the new Terms on our website. Your continued use of our services after such changes constitutes your acceptance of the revised Terms.
+
+  **8. Governing Law**
+
+  These Terms are governed by and construed in accordance with the laws of USA, without regard to its conflict of law principles. Any disputes arising from these Terms will be subject to the exclusive jurisdiction of the courts in Manhattan.
+
+  **9. Contact Us**
+
+  If you have any questions or concerns about these Terms, please contact us at [Your Contact Information].
+
+  **Effective Date:** ${adjustedTime}
+`;
