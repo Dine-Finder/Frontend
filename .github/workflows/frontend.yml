@@ -30,6 +30,11 @@ jobs:
     - name: Build Frontend
       run: npm run build
 
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+
     - name: Checkout Backend code
       uses: actions/checkout@v4
       with:
