@@ -5,7 +5,7 @@ export default defineConfig({
   base: './',
   plugins: [react()],
   build: {
-    outDir: '../Backend/flaskapp/build',
+    outDir: 'build',
     emptyOutDir: true,
     assetsDir: 'assets',
     rollupOptions: {
