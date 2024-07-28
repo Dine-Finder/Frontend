@@ -2,11 +2,12 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "../../assets/logo.png";
 import { navItems } from "../../constants";
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
 
   const toggleNavbar = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);
@@ -22,6 +23,11 @@ const Navbar = () => {
 
   const handleNavigate = (path) => {
     return () => navigate(path);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/');
   };
 
   return (
@@ -42,19 +48,29 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="hidden lg:flex justify-center space-x-12 items-center">
-            <button onClick={handleNavigate('/login')} className="py-2 px-3 text-base border rounded-md hover:scale-110 active:scale-90">
-              Sign In
-            </button>
-            <button onClick={handleNavigate('/register')} className="bg-gradient-to-r text-base from-orange-500 to-orange-800 py-2 px-3 rounded-md hover:scale-110 active:scale-90">
-              Create an account
-            </button>
+            {token ? (
+              <>
+                <button onClick={handleLogout} className="py-2 px-3 text-base border rounded-md hover:scale-110 active:scale-90">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <button onClick={handleNavigate('/login')} className="py-2 px-3 text-base border rounded-md hover:scale-110 active:scale-90">
+                  Sign In
+                </button>
+                <button onClick={handleNavigate('/register')} className="bg-gradient-to-r text-base from-orange-500 to-orange-800 py-2 px-3 rounded-md hover:scale-110 active:scale-90">
+                  Create an account
+                </button>
+              </>
+            )}
           </div>
           <div className="lg:hidden md:flex flex-col justify-end">
             <button onClick={toggleNavbar}>
               {mobileDrawerOpen ? <X /> : <Menu />}
             </button>
           </div>
-        </div>  
+        </div>
         {mobileDrawerOpen && (
           <div className="fixed z-20 bg-custom-dark w-[90vw] top-19 border right-5 p-2 flex flex-col justify-center items-center lg:hidden rounded-md">
             <ul className="pt-4 flex flex-col gap-2">
@@ -62,18 +78,23 @@ const Navbar = () => {
                 <li key={index} className="p-2 text-sm text-white rounded-md duration-300 border">
                   <Link to={item.href} onClick={(e) => handleNavClick(e, item.href)}>{item.label}</Link>
                 </li>
-
               ))}
             </ul>
             <div className="flex space-x-6 py-4">
-              <button onClick={handleNavigate('/login')} className="py-2 px-3 border rounded-md hover:scale-110 active:scale-90">
-                Sign In
-              </button>
-              <button onClick={handleNavigate('/register')} 
-                className="py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-orange-800 hover:scale-110 active:scale-90"
-              >
-                Create an account
-              </button>
+              {token ? (
+                <button onClick={handleLogout} className="py-2 px-3 border rounded-md hover:scale-110 active:scale-90">
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <button onClick={handleNavigate('/login')} className="py-2 px-3 border rounded-md hover:scale-110 active:scale-90">
+                    Sign In
+                  </button>
+                  <button onClick={handleNavigate('/register')} className="py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-orange-800 hover:scale-110 active:scale-90">
+                    Create an account
+                  </button>
+                </>
+              )}
             </div>
           </div>
         )}
