@@ -33,7 +33,7 @@ jobs:
     - name: Checkout Backend code
       uses: actions/checkout@v4
       with:
-        repository: Resturant-Recommendation-System/Backend
+        repository: Dine-Finder/Backend
         path: Backend
         token: ${{ secrets.BACKEND_REPO_TOKEN }}
 
